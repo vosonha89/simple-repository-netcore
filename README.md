@@ -1,10 +1,11 @@
 # NetCore.SimpleRepository Release Notes
 
-|  Version  | Release Date |
-| :-- | :-- |
-| 0.0.1 | [August 18, 2023] |
+|  Version  | Release Date | Link |
+| :-- | :-- | :-- |
+| 0.0.1 | [August 18, 2023] | https://www.nuget.org/packages/DevNetCore.SimpleRepository/0.0.1 |
 
 You can find release notes for all releases, including out-of-support releases
+https://www.nuget.org/packages/DevNetCore.SimpleRepository
 
 ## Reference Information
 
