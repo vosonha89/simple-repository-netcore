@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NetCore.SimpleRepository.Abstract
+namespace DevNetCore.SimpleRepository.Abstract
 {
     /// <summary>
     /// Abstract database entity

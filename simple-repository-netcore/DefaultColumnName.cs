@@ -1,4 +1,4 @@
-﻿namespace NetCore.SimpleRepository
+﻿namespace DevNetCore.SimpleRepository
 {
     public partial class DefaultColumnName
     {

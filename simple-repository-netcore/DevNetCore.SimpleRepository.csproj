@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<RootNamespace>NetCore.SimpleRepository</RootNamespace>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<PackageProjectUrl>https://github.com/vosonha89/simple-repository-netcore</PackageProjectUrl>
+		<Copyright>vosonha@2023</Copyright>
+		<Description>Simple repository pattern base on entity framework core</Description>
+		<RepositoryUrl>https://github.com/vosonha89/simple-repository-netcore</RepositoryUrl>
+		<Authors>vosonha89</Authors>
+		<PackageIcon>NetCore.SimpleRepository.png</PackageIcon>
+		<PackageTags>ef-core repository dbcontext</PackageTags>
+		<PackageId>DevNetCore.SimpleRepository</PackageId>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<Version>0.0.1</Version>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\Icon\NetCore.SimpleRepository.png">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="..\README.md">
+		  <Pack>True</Pack>
+		  <PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.21" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="Icon\NetCore.SimpleRepository.png">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+</Project>

@@ -1,15 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using NetCore.SimpleRepository.Abstract;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using DevNetCore.SimpleRepository.Abstract;
+using DevNetCore.SimpleRepository.Interface;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace NetCore.SimpleRepository.Implementation
+namespace DevNetCore.SimpleRepository.Implementation
 {
-    public partial class SimpleRepository : IDisposable
+    public partial class SimpleRepository : ISimpleRepository, IDisposable
     {
         public readonly DbContext _DbContext;
 
@@ -40,13 +36,21 @@ namespace NetCore.SimpleRepository.Implementation
             return _DbContext.SaveChangesAsync(cancellationToken);
         }
 
-        public int Update<T>(T entity, CancellationToken cancellationToken = default) where T : DbEntity, new()
+        public Task<int> Update<T>(T entity, CancellationToken cancellationToken = default) where T : DbEntity, new()
         {
             if (string.IsNullOrEmpty(entity.LastUpdateBy))
             {
                 entity.LastUpdateBy = Guid.Empty.ToString();
             }
             entity.LastUpdateDate = DateTime.UtcNow;
+            _DbContext.Set<T>().Update(entity);
+            return _DbContext.SaveChangesAsync(cancellationToken);
+        }
+
+        public Task<int> Delete<T>(T entity, CancellationToken cancellationToken = default) where T : DbEntity, new()
+        {
+            _DbContext.Set<T>().Remove(entity);
+            return _DbContext.SaveChangesAsync(cancellationToken);
         }
 
         public void Dispose()
