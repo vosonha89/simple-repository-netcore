@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net6.0</TargetFramework>
+		<TargetFramework>net8.0</TargetFramework>
 		<RootNamespace>NetCore.SimpleRepository</RootNamespace>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
@@ -16,8 +16,9 @@
 		<PackageId>DevNetCore.SimpleRepository</PackageId>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<Version>0.0.1</Version>
-	</PropertyGroup>
+		<Version>0.0.2</Version>
+	  <UserSecretsId>15e2c1d5-b812-4b61-be68-8b02622182a3</UserSecretsId>
+  </PropertyGroup>
 
 	<ItemGroup>
 		<None Include="..\Icon\NetCore.SimpleRepository.png">
@@ -31,7 +32,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.21" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.15" />
 	</ItemGroup>
 
 	<ItemGroup>

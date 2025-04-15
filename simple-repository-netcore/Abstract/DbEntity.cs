@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DevNetCore.SimpleRepository.Abstract
 {
@@ -7,19 +8,27 @@ namespace DevNetCore.SimpleRepository.Abstract
     /// </summary>
     public abstract class DbEntity
     {
-        [Column(Order = 0, TypeName = DefaultColumnName.Id)]
+        [Key]
+        [Column(DefaultColumnName.Id, Order = 0)]
         public Guid Id { get; set; }
 
-        [Column(Order = 1000, TypeName = DefaultColumnName.CreatedBy)]
+        [Column(DefaultColumnName.CreatedBy, Order = 1000)]
         public string? CreatedBy { get; set; }
 
-        [Column(Order = 1001, TypeName = DefaultColumnName.CreatedDate)]
+        [Column(DefaultColumnName.CreatedDate, Order = 1001)]
         public DateTimeOffset CreatedDate { get; set; }
 
-        [Column(Order = 1002, TypeName = DefaultColumnName.LastUpdateBy)]
+        [Column(DefaultColumnName.LastUpdateBy, Order = 1002)]
         public string? LastUpdateBy { get; set; }
 
-        [Column(Order = 1003, TypeName = DefaultColumnName.LastUpdateDate)]
+        [Column(DefaultColumnName.LastUpdateDate, Order = 1003)]
         public DateTimeOffset LastUpdateDate { get; set; }
+
+        protected DbEntity()
+        {
+            this.Id = Guid.NewGuid();
+            this.CreatedBy = string.Empty;
+            this.CreatedDate = DateTimeOffset.Now;
+        }
     }
 }

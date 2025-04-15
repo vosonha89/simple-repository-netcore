@@ -8,3 +8,5 @@
 /.vs/NetCore.SimpleRepository/v17
 /.vs
 /simple-repository-netcore/bin
+bin
+obj
