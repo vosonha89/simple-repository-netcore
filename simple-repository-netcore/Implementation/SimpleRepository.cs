@@ -6,20 +6,20 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace DevNetCore.SimpleRepository.Implementation
 {
+    /// <summary>
+    /// Simple repository
+    /// </summary>
     public class SimpleRepository : ISimpleRepository, IDisposable
     {
         private readonly DbContext _dbContext;
 
-        public DbContext DbContext
-        {
-            get { return _dbContext; }
-        }
+        public DbContext DbContext => _dbContext;
 
         /// <summary>
         /// Constructor with dbContext
         /// </summary>
         /// <param name="dbContext"></param>
-        public SimpleRepository(DbContext dbContext)
+        protected SimpleRepository(DbContext dbContext)
         {
             _dbContext = dbContext;
         }
@@ -115,6 +115,10 @@ namespace DevNetCore.SimpleRepository.Implementation
             GC.SuppressFinalize(this);
         }
 
+        /// <summary>
+        /// Dispose action
+        /// </summary>
+        /// <param name="disposing"></param>
         protected virtual void Dispose(bool disposing)
         {
             _dbContext.Dispose();
